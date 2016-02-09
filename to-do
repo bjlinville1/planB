@@ -1,0 +1,67 @@
+To Do:
+fix geocoder :address error on .save!
+editable by admin, & SuperUser
+
+ben:make filters look nicer & function better. make index css add margins between titles & pics
+
+Build railsbridge a map feature for their upcoming events!
+
+Results page:
+Use https://mapicons.mapsmarker.com for good map icons
+
+Add google autocomplete. walkthrough at https://github.com/kristianmandrup/gmaps-autocomplete-rails
+put search field at the top of the sidebar. full width, default text: most recent search
+put full width div in sidebar containing "facility type" above a toggle button for facility types
+
+Fix the css for the sidebar partial
+ - break each display into a container with max widths to limit text overflow & align icons/distances
+
+Display info window on click above each pin
+  Each window should display in 2 containers
+  Top
+   - link_to facility name
+   - Optional: distance icon left of facility name
+  Bottom 
+   - link_to "Get Directions"
+
+Write the layout
+  Gray watermarked nav bar looking thing
+  - login on the top right(Ray's edit, not the invision design)
+  - powered by Wastebits bottom right
+  Logo
+  - Agnos Waste logo top left
+
+Landing Page
+format search field to look pretty like they did
+layout - login & powered by
+
+Show page
+1/3 map, 2/3 detail
+Detail
+  1st column 
+    - Facility name
+    - Acceptable materials
+    - Hazardous: accepts?
+    - Permits
+    - facility statement of qualification
+    - Terms & conditions
+    - Additional info
+  2nd column
+    - Ask a question button: link_to question_form_modal
+    - Street address
+    - phone numbers
+    - Get directions button
+    - Hours & closures
+    - Holiday closures
+
+
+# to do: raise exception if no facilities are found, and display index page without any facilities found
+
+check whether we need to format the fields on facilities differently. everything but lat-longs & waste_type are set to String type for ease of import
+
+With Nick
+
+write some good tests
+- only test code that you write; 
+
+Long term: set API key up for our production volumes

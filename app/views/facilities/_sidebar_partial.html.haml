@@ -1,0 +1,20 @@
+/ %li
+/   %a "#{object.facility_name}"
+-address = build_facility_address_string(object)
+
+.sidebar_facility_info_container
+  / insert waste_type_icon_method here to grab the correct icon
+  .sidebar_icon_and_mileage_container
+    =image_tag "landfill_icon.png", class: "sidebar_icon_box"
+    %br
+    .sidebar_miles_away
+      -if params[:vendor_list_company] == "None"
+        ="#{object.distance.truncate} miles"
+  .sidebar_facility_name
+    =link_to "#{object.facility_name}", object, {style: "color: deepskyblue"} #i surrender. i need help with css. why is the scaffold css overriding facilities css?
+  %br
+  .sidebar_facility_address
+    ="#{object.location}"
+    %br
+    ="#{object.city}, #{object.state} #{object.zip}"
+%br

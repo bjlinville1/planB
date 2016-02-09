@@ -1,0 +1,11 @@
+%p#notice= notice
+
+= link_to 'Back', companies_path
+
+-if user_signed_in?
+  -if current_user.account_status == "SuperUser"   
+    = render 'form'
+  %p
+    %b Company name:
+    = @company.company_name  
+

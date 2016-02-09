@@ -1,0 +1,54 @@
+class AddFieldsToFacilitiesTable < ActiveRecord::Migration
+  def change
+    add_column :facilities, :code, :string
+    add_column :facilities, :facility_type, :string
+    add_column :facilities, :group, :string
+    add_column :facilities, :facility_name, :string
+    add_column :facilities, :permit, :string
+    add_column :facilities, :map_label, :string
+    add_column :facilities, :location, :string
+    add_column :facilities, :city, :string
+    add_column :facilities, :county, :string
+    add_column :facilities, :state, :string
+    add_column :facilities, :zip, :string
+    add_column :facilities, :longitude, :float
+    add_column :facilities, :latitude, :float
+    add_column :facilities, :access, :string
+    add_column :facilities, :waste_shed, :string
+    add_column :facilities, :operating_days_and_hours, :string
+    add_column :facilities, :days_per_year, :string
+    add_column :facilities, :acres, :string
+    add_column :facilities, :total_of_all_wastes_per_day, :string
+    add_column :facilities, :volume_description, :string
+    add_column :facilities, :volume_of_primary_waste, :string
+    add_column :facilities, :primary_waste_description, :string
+    add_column :facilities, :dollars_per_ton, :string
+    add_column :facilities, :tip_fee_description, :string
+    add_column :facilities, :remaining_capacity_in_tons, :string
+    add_column :facilities, :start_date, :string
+    add_column :facilities, :close_date, :string
+    add_column :facilities, :ownership, :string
+    add_column :facilities, :owner_entity, :string
+    add_column :facilities, :owner_code, :string
+    add_column :facilities, :owner_contact, :string
+    add_column :facilities, :owner_title, :string
+    add_column :facilities, :owner_department, :string
+    add_column :facilities, :owner_address_1, :string
+    add_column :facilities, :owner_address_2, :string
+    add_column :facilities, :owner_phone, :string
+    add_column :facilities, :owner_fax, :string
+    add_column :facilities, :owner_email, :string
+    add_column :facilities, :operation, :string
+    add_column :facilities, :operator_entity, :string
+    add_column :facilities, :operator_code, :string
+    add_column :facilities, :operator_contact, :string
+    add_column :facilities, :operator_title, :string
+    add_column :facilities, :operator_department, :string
+    add_column :facilities, :operator_address_1, :string
+    add_column :facilities, :operator_address_2, :string
+    add_column :facilities, :operator_phone, :string
+    add_column :facilities, :operator_fax, :string
+    add_column :facilities, :operator_email, :string
+    add_column :facilities, :waste_types_accepted, :text
+  end
+end

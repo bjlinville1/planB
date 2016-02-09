@@ -1,0 +1,135 @@
+// Place all the styles related to the facilities controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/*wow, absolute center + flex + size:cover nailed it.*/
+.Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.centered_div {
+  display: flex;
+  justify-content: center;
+}
+.navbar-brand {
+  background: url(logo-wm.svg) center / contain no-repeat;
+  width: 100px;
+}
+
+div.form-actions { width: 100%; text-align: center;}
+/*Home-initial CSS*/
+.home-initial-background {
+    display: flex; /* establish flex container */
+    flex-direction: column;
+    justify-content: center; /* align items vertically, in this case */
+    align-items: center; /* align items horizontally, in this case */
+    background-image:url('home-initial-bg-image.jpg');
+    background-size:cover;
+}
+
+.home-intitial-box {
+  /*duplicate center alignment here, but its just cleaner to have the search field in its own container. Who knows what my future self will do with this page someday */
+  text-align: center; 
+  width:100%;
+  height: 15%
+}
+
+.home-intitial-top-text{
+  margin-top: 14%;
+  padding-bottom: 1%;
+  color: white;
+  text-align: center; 
+  width:100%;
+  height: auto;
+  font-size: 4vh;
+  font-family: Helvetica;
+  line-height: 1.25;
+}
+.home-intitial-bottom-text{
+  font-family: Helvetica;
+  padding-top: 5%;
+  color: white;
+  text-align: center; 
+  width:33%;
+  height: auto;
+  font-size: 3vh;
+  line-height: 1.25;
+}
+.home-initial-search_form{
+  width:17%;
+  max-width: 250px;
+  min-width: 150px;
+  height: 100%
+
+}
+.home-intitial-logo-container{
+  position:absolute;
+  top:50px; 
+  left:10px;
+  width: 100%;
+  height: auto
+}
+.home-intitial-logo{
+  width:20%;
+  margin-top: 3%;
+}
+
+/* END Home-initial CSS*/
+
+/*facilities_index CSS*/
+
+
+.markers_list{
+  width: 40%;
+  height: 600px;
+  float: right;
+  overflow: scroll;
+  background-color: 239,239,239
+}
+#map{
+  width: 60%; 
+  height:600px;
+  position: absolute;
+}
+.element {
+  margin-top: 15px;
+}
+/*on the first infowindow click, google styles the window perfectly. Figure out how this is happening, and fix it*/
+.info_window{
+}
+/* END facilities_index CSS*/
+
+/*_sidebar_partial CSS*/
+.sidebar_facility_info_container{
+  width: 100%;
+  max-height: 150px;
+  overflow:scroll;
+}
+
+.sidebar_icon_and_mileage_container{
+  float: left;
+  width:75px;
+}
+.sidebar_icon_box{
+  display: inline-block;
+  width: 75px;
+  max-width: 75px;
+}
+
+.sidebar_facility_name{
+  display: inline;
+  color: deepskyblue;
+  font-size: medium;
+}
+.sidebar_facility_address{
+  display: inline;
+  color: gray;
+  font-size: small;
+}
+.sidebar_miles_away{
+  text-align: center;
+  color: gray;
+}
+
+/* END _sidebar_partial CSS*/

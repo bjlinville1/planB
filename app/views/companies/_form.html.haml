@@ -1,0 +1,22 @@
+= form_for @company do |f|
+  - if @company.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@company.errors.count, "error")} prohibited this company from being saved:"
+      %ul
+        - @company.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :company_name
+    = f.text_field :company_name
+  -if user_signed_in?
+    -if current_user.account_status == "SuperUser"
+      %b
+        = "Approved Vendors List:"        
+      - for facility in Facility.where(operator_code:"WM")
+        %div
+          = check_box_tag "company[facility_ids][]", facility.id, @company.facilities.include?(facility)
+          = facility.facility_name    
+
+  .actions
+    = f.submit 'Save'

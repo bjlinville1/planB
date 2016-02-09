@@ -1,0 +1,42 @@
+!!!
+%html
+  %head
+    %title AgnosProject
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    
+  / %p.notice= notice
+  / %p.alert= alert
+  %body
+    / Fixed navbar
+    .navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+            / domain branding starter: applying logo upon log-in
+          -if user_signed_in?
+            -if current_user.account_status == "registered_user"
+              %a.navbar-brand{:href => root}
+            -else 
+              %a.navbar-brand{:href => root_path, style: "background: url()"} Agnos
+          -else 
+            %a.navbar-brand{:href => "#", style: "background: url()"} Agnos
+        .navbar-collapse.collapse
+          %ul.nav.navbar-nav
+            %li
+              = link_to 'Map', facilities_path(params)
+            -if user_signed_in?
+              -if current_user.account_status == "SuperUser" 
+                %li
+                  = link_to 'Companies', companies_path
+          .pull-right.element
+            = user_login_links
+            -if user_signed_in?
+              -if current_user.account_status == "registered_user"            
+                %a.btn.btn-sm.btn-success{:href => "http://www.wastebits.com", :style => "color: G246HL; color:white", :target => "_blank"} Submit Profile
+    = yield

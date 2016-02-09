@@ -1,0 +1,13 @@
+.home-initial-background.Absolute-Center
+  .home-intitial-top-text
+    ="Find a Facility"
+  / To do: find a bootsnippet search entry field to past in here
+  .home-intitial-box
+    = form_tag facilities_path, :method => :get do
+      = text_field_tag :search, params[:search], class: "home-initial-search_form"
+      = submit_tag "Go", :name => nil, class: "search_submit_button btn btn-lg btn-primary"
+  / .home-intitial-logo-container
+  /   -if user_signed_in?
+  /     =image_tag "logo-wm.svg", class: "home-intitial-logo"
+  .home-intitial-bottom-text
+    ="The simple way to find treatment facilities for waste"

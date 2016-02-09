@@ -1,0 +1,91 @@
+%p#notice= notice
+%center
+  %h1= @facility.facility_name
+/ do next: make this a pop up modal
+.container
+  .row
+    .col-xs-6
+      / determine user type
+      / select array of keys
+      / for each key, display the corresponding value
+      / to do: hermagerrrsh, REFACTOR
+      %br
+      %br
+      %b
+        = "Address: "
+      -address = build_facility_address_string(@facility)
+      ="#{address}"
+      %br
+      %b
+        = "Permit: "
+      = "#{@facility.permit}"
+      %br
+      %b
+        = "Facility statement of qualification: "
+      = "None"
+      %br
+      %b
+        = "Additional info: "
+      = ""
+      %br
+      -if user_signed_in?
+        -find_appropriate_values_to_display(current_user) 
+        = form_for @facility do |f|
+          - if @facility.errors.any?
+            #error_explanation
+              %h2= "#{pluralize(@facility.errors.count, "error")} prohibited this facility from being saved:"
+              %ul
+                - @facility.errors.full_messages.each do |msg|
+                  %li= msg
+          -@keys_array.each do |key|
+            -if @facility[key] == ""
+              / .field
+              /   = f.label "#{key.humanize}: "
+              /   = f.text_field key, :placeholder => "Unknown"
+              /   %br
+            -else
+              .field
+                = f.label "#{key.humanize}: "
+                / find current_user's status
+                / display the correct template according to account_status
+                - if current_user.account_status == "SuperUser"  
+                  = f.text_field key, :placeholder => "#{@facility[key]}"
+                - else
+                  ="#{@facility[key]}"
+                / Must find a way to remove submit button for non-authorized user
+          -if user_signed_in?
+            -if current_user.account_status == "SuperUser"
+              .actions
+                = f.submit 'Save changes'
+      -else
+        -@free_values.each do |key|
+          %b
+            ="#{key.humanize}: "
+          =@facility[key]
+          %br
+        %b  
+          = "Accepts hazardous materials? "
+          / to do: write the logic for this after building the process to include this info
+        = "No"
+        %br
+    .col-xs-6
+      /   2nd column 
+      / - Permits
+      / - facility statement of qualification
+      / - Terms & conditions
+      / - Additional info
+      %p
+        %b.pull-right
+          = link_to "Ask a Question", root_path
+        %br
+
+      %b Nearby Facilities
+      %ul 
+        - for facility in @facility.nearbys(1000).limit(6)
+          %li
+            = link_to "#{facility.facility_name} #{facility.location} #{facility.city}, #{facility.state}", facility
+            (#{facility.distance.truncate} miles)
+
+/ form example for Super users to edit fields
+
+/ %br

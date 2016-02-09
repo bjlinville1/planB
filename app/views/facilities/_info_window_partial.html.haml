@@ -1,0 +1,16 @@
+-address = build_facility_address_string(object)
+.sidebar_icon_and_mileage_container
+  / insert waste_type_icon_method here to grab the correct icon
+  =image_tag "landfill_icon.png", class: "sidebar_icon_box"
+  %br
+  .sidebar_miles_away
+    -if params[:vendor_list_company] == "None"
+      ="#{object.distance.truncate} miles"
+.sidebar_facility_name
+  =link_to "#{object.facility_name}", object, {style: "color: deepskyblue"}
+%br
+.sidebar_facility_address
+  ="#{object.location}"
+  %br
+  ="#{object.city}, #{object.state} #{object.zip}"
+%br
